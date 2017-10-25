@@ -1,0 +1,14 @@
+{
+	"name": "/sproketsralstonhelpers",
+	"description": "Sprokets Ralston Helpers",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Sprokets",
+			"homepage": "http://sprokets.net"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
