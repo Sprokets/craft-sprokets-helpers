@@ -33,7 +33,7 @@ Usage:
 {# outputs 'Hello12342' #}
 ```
 
-####`nl2p`
+#### `nl2p`
 
 Convert plain-text fields with line breaks into html. Changes a single line break to `<br>` and double line breaks to `<p>`
 

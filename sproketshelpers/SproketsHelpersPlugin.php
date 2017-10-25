@@ -82,7 +82,7 @@ class SproketsHelpersPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return '???';
+        return 'https://github.com/Sprokets/craft-sprokets-helpers';
     }
 
     /**
@@ -94,7 +94,7 @@ class SproketsHelpersPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return '???';
+        return 'https://raw.githubusercontent.com/Sprokets/craft-sprokets-helpers/master/releases.json';
     }
 
     /**
