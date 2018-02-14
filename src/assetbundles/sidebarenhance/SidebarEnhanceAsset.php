@@ -8,8 +8,7 @@
  * @copyright Copyright (c) 2018 sprokets
  */
 
-namespace sprokets\sproketshelpers\assetbundles\Sproketshelpers;
-
+namespace sprokets\sproketshelpers\assetbundles\Sidebarenhance;
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
@@ -32,7 +31,7 @@ use craft\web\assets\cp\CpAsset;
  * @package   Sproketshelpers
  * @since     2.0.0
  */
-class SproketshelpersAsset extends AssetBundle
+class SidebarEnhanceAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,7 +42,7 @@ class SproketshelpersAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@sprokets/sproketshelpers/assetbundles/sproketshelpers/dist";
+        $this->sourcePath = "@sprokets/sproketshelpers/assetbundles/sidebarenhance/dist";
 
         // define the dependencies
         $this->depends = [
@@ -53,7 +52,6 @@ class SproketshelpersAsset extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/discloseassets.js',
             'js/sidebarenhance.js',
         ];
 

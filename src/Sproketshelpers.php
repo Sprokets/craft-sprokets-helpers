@@ -12,6 +12,7 @@ namespace sprokets\sproketshelpers;
 
 use sprokets\sproketshelpers\variables\SproketshelpersVariable;
 use sprokets\sproketshelpers\models\Settings;
+// use sprokets\sproketshelpers\assetbundles\sidebarenhance\Sproketshelpers_SidebarEnhanceAsset;
 
 use Craft;
 use craft\base\Plugin;
@@ -79,16 +80,16 @@ class Sproketshelpers extends Plugin
     {
         parent::init();
         self::$plugin = $this;
-        $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sproketshelpers\\SproketshelpersAsset");
-        // if (!Craft::$app->isConsole()) {
-        //     if (craft()->request->isCpRequest() && craft()->userSession->isLoggedIn()) {
-        //         craft()->templates->includeJsResource('sproketshelpers/js/discloseassets.js');
-        //     }
-        //     if (craft()->request->isCpRequest() && craft()->userSession->isAdmin()) {
-        //         craft()->templates->includeCssResource('sproketshelpers/css/sidebarenhance.css');
-        //         craft()->templates->includeJsResource('sproketshelpers/js/sidebarenhance.js');
-        //     }
-        // }
+
+        if (!\Craft::$app->request->getIsConsoleRequest()) {
+            if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
+                $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\discloseassets\\DiscloseAssetsBundle");
+            }
+            if (\Craft::$app->request->getIsCpRequest() && \Craft::$app->user->identity->admin) {
+                // $this->view->registerAssetBundle(Sproketshelpers_SidebarEnhanceAsset::class);
+                $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sidebarenhance\\SidebarEnhanceAsset");
+            }
+        }
 
         // Register our variables
         Event::on(
