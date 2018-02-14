@@ -1,5 +1,4 @@
 .system-menu {
-    margin-top: 20px;
 }
 
 .system-menu ul {
@@ -10,13 +9,13 @@
     margin-bottom: 0;
 }
 
-.site-name {
+.system-menu .site-name {
     display: block;
     padding: 14px;
 
     color: #fff;
 }
-
+/*
 .system-menu ul a {
     font-size: 13px;
 }
@@ -58,4 +57,4 @@ body.rtl #extranav li a .icon { margin-left: 10px; }
 #extranav li a .icon svg { width: 16px; max-height: 16px; }
 #extranav li a .icon svg rect, #extranav li a .icon svg circle, #extranav li a .icon svg ellipse, #extranav li a .icon svg line, #extranav li a .icon svg polyline, #extranav li a .icon svg polygon, #extranav li a .icon svg path, #extranav li a .icon svg text { fill: #fff; stroke-width: 0; }
 
-#extranav li:not(.has-subnav) a.sel .icon { opacity: 1; }
+#extranav li:not(.has-subnav) a.sel .icon { opacity: 1; }*/

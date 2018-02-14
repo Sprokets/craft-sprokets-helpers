@@ -1,15 +1,26 @@
-# Sprokets Helpers plugin for Craft CMS
+# sprokets-helpers plugin for Craft CMS 3.x
+
+Misc helpers
+
+![Screenshot](resources/img/plugin-logo.png)
+
+## Requirements
+
+This plugin requires Craft CMS 3.0.0-beta.23 or later.
 
 ## Installation
 
-To install Sprokets Helpers, follow these steps:
+To install the plugin, follow these instructions.
 
-1. Download & unzip the file and place the `sproketshelpers` directory into your `craft/plugins` directory
-2. -OR- do a `git clone ???` directly into your `craft/plugins` folder. You can then update it with `git pull`
-3. -OR- install with Composer via `composer require /sproketshelpers`
-4. Install plugin in the Craft Control Panel under Settings > Plugins
+1. Open your terminal and go to your Craft project:
 
-Sprokets Helpers works on Craft 2.4.x and Craft 2.5.x.
+        cd /path/to/project
+
+2. Then tell Composer to load the plugin:
+
+        composer require craft-sprokets-helpers/sprokets-helpers
+
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for sprokets-helpers.
 
 ## Sprokets Helpers Overview
 
