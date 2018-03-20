@@ -81,15 +81,15 @@ class Sproketshelpers extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        if (!\Craft::$app->request->getIsConsoleRequest()) {
-            if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
-                $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\discloseassets\\DiscloseAssetsBundle");
-            }
-            if (\Craft::$app->request->getIsCpRequest() && \Craft::$app->user->identity->admin) {
-                // $this->view->registerAssetBundle(Sproketshelpers_SidebarEnhanceAsset::class);
-                $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sidebarenhance\\SidebarEnhanceAsset");
-            }
-        }
+        // if (!\Craft::$app->request->getIsConsoleRequest()) {
+        //     if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
+        //         $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\discloseassets\\DiscloseAssetsBundle");
+        //     }
+        //     if (\Craft::$app->request->getIsCpRequest() && \Craft::$app->user->identity->admin) {
+        //         // $this->view->registerAssetBundle(Sproketshelpers_SidebarEnhanceAsset::class);
+        //         $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sidebarenhance\\SidebarEnhanceAsset");
+        //     }
+        // }
 
         // Register our variables
         Event::on(
