@@ -193,4 +193,11 @@ class SproketsHelpersPlugin extends BasePlugin
     public function onAfterUninstall()
     {
     }
+
+    public function addTwigExtension()
+    {
+        Craft::import('plugins.sproketshelpers.twigextensions.SproketsHelpersTwigExtension');
+
+        return new SproketsHelpersTwigExtension();
+    }
 }

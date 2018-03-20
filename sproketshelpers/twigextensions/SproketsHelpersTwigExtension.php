@@ -22,6 +22,8 @@ namespace Craft;
 
 use Twig_Extension;
 use Twig_Filter_Method;
+use Twig_Markup;
+use DOMDocument;
 
 class SproketsHelpersTwigExtension extends \Twig_Extension
 {
@@ -47,6 +49,7 @@ class SproketsHelpersTwigExtension extends \Twig_Extension
     return array(
       'idString' => new \Twig_Filter_Method($this, 'getIdFromString'),
       'nl2p' => new \Twig_Filter_Method($this, 'nl2p'),
+      'emailObfuscate' => new Twig_Filter_Method($this, 'emailObfuscate'),
     );
   }
 
@@ -149,6 +152,75 @@ class SproketsHelpersTwigExtension extends \Twig_Extension
     }
 
     return $this->getYoutubeInfo($url);
+  }
+
+  protected function pregEmails($string)
+  {
+
+    return preg_replace("/(^|[\n ])([a-z0-9&\-_\.]+?)@([\w\-]+\.([\w\-\.]+)+)/i", "$1<a href=\"mailto:$2@$3\">$2@$3</a>", $string);
+
+  }
+
+  /**
+  * Regex to find email addresses and replace them with full HTML links
+  *
+  * @param string $string
+  * @return string
+  *
+  */
+  public function emailObfuscate($string)
+  {
+
+    if (trim($string) == '') {
+      return;
+    }
+
+    $string = $this->pregEmails($string);
+
+
+    // Start the dom object
+    $dom = new DOMDocument();
+    $dom->recover = true;
+    $dom->substituteEntities = true;
+
+    // Feed the content to the dom object
+    libxml_use_internal_errors(true);
+    $dom->loadHTML($string);
+    libxml_use_internal_errors(false);
+
+    // Check each link
+    foreach ($dom->getElementsByTagName('a') as $anchor) {
+
+      // Get the href
+      $href = $anchor->getAttribute('href');
+
+      // // Check if it's a mailto link
+      if (substr($href, 0, 7) == 'mailto:') {
+
+        $anchor = $dom->saveHTML($anchor);
+        $encoded = $this->js_rot13_encode($anchor);
+        $string = str_replace($anchor, $encoded, $string);
+      }
+    }
+
+    return new Twig_Markup($string, craft()->templates->getTwig()->getCharset());
+  }
+
+  /**
+  * Returns a rot13 encrypted string as well as a JavaScript decoder function.
+  * @param string $inputString The string to encrypt
+  * @return string An encoded javascript function
+  */
+  private function js_rot13_encode($string)
+  {
+    $rotated = str_replace('"','\"',str_rot13($string));
+    $string = '<script type="text/javascript">
+      /*<![CDATA[*/
+      document.write("'.$rotated.'".replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+      /*]]>*/
+      </script>';
+
+    return $string;
   }
 
 
