@@ -104,7 +104,7 @@ class SproketsHelpersPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.0.1';
+        return '1.1.0';
     }
 
     /**
@@ -194,10 +194,4 @@ class SproketsHelpersPlugin extends BasePlugin
     {
     }
 
-    public function addTwigExtension()
-    {
-        Craft::import('plugins.sproketshelpers.twigextensions.SproketsHelpersTwigExtension');
-
-        return new SproketsHelpersTwigExtension();
-    }
 }
