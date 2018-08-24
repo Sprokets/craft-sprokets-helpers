@@ -1,14 +1,40 @@
 {
-	"name": "/sproketsralstonhelpers",
-	"description": "Sprokets Ralston Helpers",
-	"type": "craft-plugin",
-	"authors": [
-		{
-			"name": "Sprokets",
-			"homepage": "http://sprokets.net"
-		}
-	],
-	"require": {
-		"composer/installers": "~1.0"
-	}
+  "name": "sprokets/sprokets-helpers",
+  "description": "Misc helpers",
+  "type": "craft-plugin",
+  "version": "2.0.2",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "sprokets-helpers"
+  ],
+  "support": {
+    "docs": "https://github.com/craft-sprokets-helpers/sprokets-helpers/blob/master/README.md",
+    "issues": "https://github.com/craft-sprokets-helpers/sprokets-helpers/issues"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "sprokets",
+      "homepage": "https://sprokets.net"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0-RC1"
+  },
+  "autoload": {
+    "psr-4": {
+      "sprokets\\sproketshelpers\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "sprokets-helpers",
+    "handle": "sprokets-helpers",
+    "hasCpSettings": true,
+    "hasCpSection": false,
+    "changelogUrl": "https://raw.githubusercontent.com/craft-sprokets-helpers/sprokets-helpers/master/CHANGELOG.md",
+    "class": "sprokets\\sproketshelpers\\Sproketshelpers"
+  }
 }

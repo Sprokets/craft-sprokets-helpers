@@ -1,13 +1,9 @@
-# Sprokets Ralston Helpers Changelog
+# sprokets-helpers Changelog
 
-## 1.1.0 -- 2018.03.20
-- Add `emailObfuscate twig filter`
+All notable changes to this project will be documented in this file.
 
-## 1.0.1 -- 2017.10.25
- - Couple updates
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.0.0 -- 2017.10.25
-
-* Initial release
-
-Brought to you by [Sprokets](http://sprokets.net)
+## 2.0.0 - 2018-02-14
+### Added
+- Initial release
