@@ -63,6 +63,29 @@ test2
 {# outputs <p>test<br>test1</p><p>test2</p> #}
 ```
 
+#### `emailObfuscate`
+
+Link and obfuscate plain-text emails in any chunk of text.
+
+Useage:
+```twig
+{{entry.body|emailObfuscate}}
+```
+
+OR
+```twig
+{% filter emailObfuscate %}
+  {# Any Content #}
+{% endfilter %}
+```
+
+This can be used to over entire chunks of a website, for instance in your layout template:
+```twig
+{% filter emailObfuscate %}
+  {% block content %}{% endblock %}
+{% endfilter %}
+```
+
 ### Functions
 #### `getVideoInfo`
 
