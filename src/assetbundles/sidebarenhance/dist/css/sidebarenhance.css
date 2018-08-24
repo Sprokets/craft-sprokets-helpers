@@ -1,60 +1,9 @@
 .system-menu {
 }
 
-.system-menu ul {
-    margin-bottom: 20px;
-}
-
-.system-menu ul:last-child {
-    margin-bottom: 0;
-}
-
 .system-menu .site-name {
-    display: block;
-    padding: 14px;
-
-    color: #fff;
+  display: block;
+  padding: 32px 0 14px;
+  margin-left: -5px;
+  color: #fff;
 }
-/*
-.system-menu ul a {
-    font-size: 13px;
-}
-
-.system-menu ul a:before {
-    width: 16px;
-    max-height: 16px;
-    margin-right: 10px;
-    justify-content: center;
-
-    font-size: 16px;
-
-    opacity: 0.5;
-}
-
-#extranav li a { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-align: center; align-items: center; margin: 0; padding: 10px 14px; min-height: 24px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-left: 0px solid transparent; }
-
-#extranav li a:active .icon { opacity: 1; }
-
-#extranav li a.active { color: #fff; }
-
-#extranav li:not(.has-subnav) a.sel { color: #fff; background: rgba(255, 255, 255, 0.1); border-color: #da5a47; opacity: 1; }
-
-#extranav li a:not(.sel) .badge { color: #333 !important; }
-
-#extranav li a.menubtn { line-height: 26px; }
-
-body.ltr #extranav li ul li a { padding-left: 60px; }
-body.rtl #extranav li ul li a { padding-right: 60px; }
-
-#extranav li a .icon { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-align: center; align-items: center; -ms-flex-align: center; justify-content: center; width: 16px; opacity: 0.5; }
-body.ltr #extranav li a .icon { margin-right: 10px; }
-body.rtl #extranav li a .icon { margin-left: 10px; }
-
-#extranav li a .icon span[data-icon] { font-size: 16px; color: #fff; }
-
-#extranav li a .icon span[data-icon]::before { display: block; }
-
-#extranav li a .icon svg { width: 16px; max-height: 16px; }
-#extranav li a .icon svg rect, #extranav li a .icon svg circle, #extranav li a .icon svg ellipse, #extranav li a .icon svg line, #extranav li a .icon svg polyline, #extranav li a .icon svg polygon, #extranav li a .icon svg path, #extranav li a .icon svg text { fill: #fff; stroke-width: 0; }
-
-#extranav li:not(.has-subnav) a.sel .icon { opacity: 1; }*/
