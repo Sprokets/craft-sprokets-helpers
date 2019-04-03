@@ -12,6 +12,7 @@ namespace sprokets\sproketshelpers;
 
 use sprokets\sproketshelpers\variables\SproketshelpersVariable;
 use sprokets\sproketshelpers\models\Settings;
+use sprokets\sproketshelpers\twigextensions\SproketshelpersTwigExtension;
 // use sprokets\sproketshelpers\assetbundles\sidebarenhance\Sproketshelpers_SidebarEnhanceAsset;
 
 use Craft;
@@ -95,6 +96,8 @@ class Sproketshelpers extends Plugin
             }
         }
 
+        Craft::$app->view->registerTwigExtension(new SproketshelpersTwigExtension());
+
         // Register our variables
         Event::on(
             CraftVariable::class,
@@ -173,4 +176,5 @@ class Sproketshelpers extends Plugin
             ]
         );
     }
+
 }
