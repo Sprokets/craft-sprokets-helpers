@@ -151,30 +151,6 @@ class Sproketshelpers extends Plugin
     // Protected Methods
     // =========================================================================
 
-    /**
-     * Creates and returns the model used to store the plugin’s settings.
-     *
-     * @return \craft\base\Model|null
-     */
-    protected function createSettingsModel()
-    {
-        return new Settings();
-    }
 
-    /**
-     * Returns the rendered settings HTML, which will be inserted into the content
-     * block on the settings page.
-     *
-     * @return string The rendered settings HTML
-     */
-    protected function settingsHtml(): string
-    {
-        return Craft::$app->view->renderTemplate(
-            'sprokets-helpers/settings',
-            [
-                'settings' => $this->getSettings()
-            ]
-        );
-    }
 
 }
