@@ -11,7 +11,6 @@
 namespace sprokets\sproketshelpers;
 
 use sprokets\sproketshelpers\variables\SproketshelpersVariable;
-use sprokets\sproketshelpers\models\Settings;
 use sprokets\sproketshelpers\twigextensions\SproketshelpersTwigExtension;
 // use sprokets\sproketshelpers\assetbundles\sidebarenhance\Sproketshelpers_SidebarEnhanceAsset;
 
@@ -37,8 +36,6 @@ use yii\base\Event;
  * @package   Sproketshelpers
  * @since     2.0.0
  *
- * @property  Settings $settings
- * @method    Settings getSettings()
  */
 class Sproketshelpers extends Plugin
 {
