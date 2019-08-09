@@ -133,7 +133,8 @@ class SproketshelpersVariable
 
   public function getUiFiles() {
     $manifestDirectory = Craft::$app->path->getTempPath() . 'assetmanifest';
-    $assetDomain = Craft::$app->config->general->assetDomain;
+
+    $assetDomain = getenv('ASSET_DOMAIN') ? getenv('ASSET_DOMAIN') : Craft::$app->config->general->assetDomain;
 
     $manifestPath = $manifestDirectory . '/assetmanifest.json';
     $expiresPath = $manifestDirectory . '/expires.txt';
