@@ -49,7 +49,7 @@ class SproketshelpersVariable
     $imgid = $this->getVimeoIdFromUrl($url);
 
     if($imgid) {
-      $vdata = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$imgid.php"));
+      $vdata = unserialize(@file_get_contents("http://vimeo.com/api/v2/video/$imgid.php"));
 
       if($vdata[0]) {
         return array(
