@@ -87,7 +87,8 @@ class Sproketshelpers extends Plugin
                 \Craft::$app->request->getIsCpRequest() &&
                 \Craft::$app->user &&
                 \Craft::$app->user->identity &&
-                \Craft::$app->user->identity->admin) {
+                \Craft::$app->user->identity->admin &&
+                Craft::$app->getConfig()->general->allowAdminChanges) {
                 // $this->view->registerAssetBundle(Sproketshelpers_SidebarEnhanceAsset::class);
                 $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sidebarenhance\\SidebarEnhanceAsset");
             }
