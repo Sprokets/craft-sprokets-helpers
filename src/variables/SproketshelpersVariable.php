@@ -68,7 +68,7 @@ class SproketshelpersVariable
   function getYoutubeInfo($url) {
     preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 
-    if($matches[1]) {
+    if(isset($matches[1]) && $matches[1]) {
       $id = $matches[1];
 
       return array(
