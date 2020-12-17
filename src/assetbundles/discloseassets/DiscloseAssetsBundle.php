@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 sprokets
  */
 
-namespace sprokets\sproketshelpers\assetbundles\DiscloseAssets;
+namespace sprokets\sproketshelpers\assetbundles\discloseassets;
 
 use Craft;
 use craft\web\AssetBundle;

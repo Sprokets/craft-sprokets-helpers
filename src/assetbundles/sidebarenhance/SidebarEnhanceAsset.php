@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018 sprokets
  */
 
-namespace sprokets\sproketshelpers\assetbundles\Sidebarenhance;
+namespace sprokets\sproketshelpers\assetbundles\sidebarenhance;
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
