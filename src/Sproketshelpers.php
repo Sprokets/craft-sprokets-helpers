@@ -61,6 +61,8 @@ class Sproketshelpers extends Plugin
      */
     public $schemaVersion = '2.0.0';
 
+    public static $nonce;
+
     // Public Methods
     // =========================================================================
 
@@ -79,6 +81,8 @@ class Sproketshelpers extends Plugin
     {
         parent::init();
         self::$plugin = $this;
+
+        self::$nonce  = Craft::$app->getConfig()->general->isContentBaseRequest ? false : base64_encode(random_bytes(32));
 
         if (!\Craft::$app->request->getIsConsoleRequest()) {
             // if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
