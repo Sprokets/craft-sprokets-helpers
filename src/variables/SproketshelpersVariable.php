@@ -138,9 +138,23 @@ class SproketshelpersVariable
     return $url;
   }
 
-  public function getUiFiles()
+  public function getNonce()
   {
-    $manifestDirectory = Craft::$app->path->getTempPath() . 'assetmanifest';
+    return Sproketshelpers::$plugin::$nonce;
+  }
+
+  public function getNonceAttribute()
+  {
+    if (Sproketshelpers::$plugin::$nonce) {
+      return 'nonce="' . Sproketshelpers::$plugin::$nonce . '"';
+    } else {
+      return '';
+    }
+  }
+
+  public function getUiFiles($useNonce = false)
+  {
+    $manifestDirectory = Craft::$app->path->getTempPath() . '/assetmanifest';
 
     $assetDomain = getenv('ASSET_DOMAIN') ? getenv('ASSET_DOMAIN') : Craft::$app->config->general->assetDomain;
 
@@ -175,26 +189,40 @@ class SproketshelpersVariable
       $uiheadContent = str_replace('"/', '"' . $assetDomain . '/', file_get_contents($assetDomain . '/static/html/uihead.html',  false, $context));
       file_put_contents($uiheadPath, $uiheadContent);
 
+
+
       $manifest = json_decode($manifestContent, true);
+
+
       file_put_contents($manifestDirectory . '/expires.txt', time() + 30);
     } else {
       $manifest = json_decode(file_get_contents($manifestPath), true);
+
       $uiheadContent = file_get_contents($uiheadPath);
       $uibodyContent = file_get_contents($uibodyPath);
+    }
+
+    if ($useNonce && Sproketshelpers::$plugin::$nonce) {
+      $uiheadContent = str_replace('<script', '<script nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uiheadContent);
+      $uiheadContent = str_replace('<style', '<style nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uiheadContent);
+      $uiheadContent = str_replace('<link', '<link nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uiheadContent);
+      $uibodyContent = str_replace('<script', '<script nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uibodyContent);
+      $uibodyContent = str_replace('<style', '<style nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uibodyContent);
+      $uibodyContent = str_replace('<link', '<link nonce="' . Sproketshelpers::$plugin::$nonce . '"', $uibodyContent);
     }
 
     return array('manifest' => $manifest, 'uiheadContent' => $uiheadContent, 'uibodyContent' => $uibodyContent);
   }
 
-  public function getUiHeadHtml()
+  public function getUiHeadHtml($useNonce = false)
   {
-    $uifiles = self::getUiFiles();
+    $uifiles = self::getUiFiles($useNonce);
     return $uifiles['uiheadContent'];
   }
 
-  public function getUiBodyHtml()
+  public function getUiBodyHtml($useNonce = false)
   {
-    $uifiles = self::getUiFiles();
+    $uifiles = self::getUiFiles($useNonce);
     return $uifiles['uibodyContent'];
   }
 
