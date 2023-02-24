@@ -59,9 +59,9 @@ class Sproketshelpers extends Plugin
      *
      * @var string
      */
-    public $schemaVersion = '2.0.0';
+    public string $schemaVersion = '2.0.0';
 
-    public static $nonce;
+    public static string $nonce;
 
     // Public Methods
     // =========================================================================
@@ -77,7 +77,7 @@ class Sproketshelpers extends Plugin
      * you do not need to load it in your init() method.
      *
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         self::$plugin = $this;

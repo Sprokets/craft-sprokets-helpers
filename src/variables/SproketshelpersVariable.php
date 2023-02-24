@@ -32,13 +32,22 @@ class SproketshelpersVariable
   // Public Methods
   // =========================================================================
 
-
-  public function getIdFromString($str)
+  /**
+   * 
+   * @param string $str 
+   * @return string|string[]|null 
+   */
+  public function getIdFromString(string $str)
   {
     return preg_replace('/\W+/', '', strtolower(strip_tags($str)));
   }
 
-  function getVimeoIdFromUrl($url)
+  /**
+   * 
+   * @param string $url 
+   * @return string|false 
+   */
+  function getVimeoIdFromUrl(string $url)
   {
     if (preg_match('#(?:https?://)?(?:www.)?(?:player.)?vimeo.com/(?:[a-z]*/)*([0-9]{6,11})[?]?.*#', $url, $m)) {
       return $m[1];
@@ -46,7 +55,12 @@ class SproketshelpersVariable
     return false;
   }
 
-  function getVimeoInfo($url)
+  /**
+   * 
+   * @param string $url 
+   * @return array<string, mixed>|null 
+   */
+  function getVimeoInfo(string $url)
   {
     $imgid = $this->getVimeoIdFromUrl($url);
 
@@ -67,7 +81,12 @@ class SproketshelpersVariable
     return null;
   }
 
-  function getYoutubeInfo($url)
+  /**
+   * 
+   * @param string $url 
+   * @return string[]|null 
+   */
+  function getYoutubeInfo(string $url)
   {
     preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 
@@ -86,7 +105,12 @@ class SproketshelpersVariable
     return null;
   }
 
-  public function getVideoInfo($url)
+  /**
+   * 
+   * @param string $url 
+   * @return array<string, mixed>|null 
+   */
+  public function getVideoInfo(string $url)
   {
     if (strpos($url, 'youtube') === false) {
       return $this->getVimeoInfo($url);
@@ -95,7 +119,14 @@ class SproketshelpersVariable
     return $this->getYoutubeInfo($url);
   }
 
-  function nl2p($string, $line_breaks = true, $xml = true)
+  /**
+   * 
+   * @param string $string 
+   * @param bool $line_breaks 
+   * @param bool $xml 
+   * @return string 
+   */
+  function nl2p(string $string, bool $line_breaks = true, bool $xml = true): string
   {
 
     $string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
@@ -113,21 +144,32 @@ class SproketshelpersVariable
     ) . '</p>';
   }
 
+  /**
+   * @return int
+   */
   public function productCount()
   {
-    $criteria = craft()->elements->getCriteria('Commerce_Product');
-    $criteria->limit = 10000;
-
-    $allcrit = $criteria->find();
-    return sizeof($allcrit);
+    $count = \craft\elements\Entry::find()->section('Commerce_Product')->count();
+    return $count;
   }
 
-  public function purchasableBySku($sku)
+  /**
+   * 
+   * @param string $sku 
+   * @return mixed 
+   */
+  public function purchasableBySku(string $sku)
   {
-    return craft()->commerce_purchasables->getPurchasableBySku($sku);
+    return \Craft::$app->commerce_purchasables->getPurchasableBySku($sku);
   }
 
-  public function getSizedImage($url, $size)
+  /**
+   * 
+   * @param string $url 
+   * @param mixed $size 
+   * @return string  
+   */
+  public function getSizedImage(string $url, $size): string
   {
     // $allowedSizes = array(60, 70, 100, 125, 161, 262, 320, 600);
     // $ext = strpos($url, '.jpg') !== false ? '.jpg' : (strpos($url, '.jpeg') !== false ? '.jpeg' : '') ;
@@ -138,11 +180,19 @@ class SproketshelpersVariable
     return $url;
   }
 
-  public function getNonce()
+  /**
+   * 
+   * @return string 
+   */
+  public function getNonce(): string
   {
     return Sproketshelpers::$plugin::$nonce;
   }
 
+  /**
+   * 
+   * @return string 
+   */
   public function getNonceAttribute()
   {
     if (Sproketshelpers::$plugin::$nonce) {
@@ -152,6 +202,11 @@ class SproketshelpersVariable
     }
   }
 
+  /**
+   * 
+   * @param bool $useNonce 
+   * @return array<string, mixed> 
+   */
   public function getUiFiles($useNonce = false)
   {
     $manifestDirectory = Craft::$app->path->getTempPath() . '/assetmanifest';
@@ -214,19 +269,34 @@ class SproketshelpersVariable
     return array('manifest' => $manifest, 'uiheadContent' => $uiheadContent, 'uibodyContent' => $uibodyContent);
   }
 
-  public function getUiHeadHtml($useNonce = false)
+  /**
+   * 
+   * @param bool $useNonce 
+   * @return mixed 
+   */
+  public function getUiHeadHtml(bool $useNonce = false)
   {
     $uifiles = self::getUiFiles($useNonce);
     return $uifiles['uiheadContent'];
   }
 
-  public function getUiBodyHtml($useNonce = false)
+  /**
+   * 
+   * @param bool $useNonce 
+   * @return mixed 
+   */
+  public function getUiBodyHtml(bool $useNonce = false)
   {
     $uifiles = self::getUiFiles($useNonce);
     return $uifiles['uibodyContent'];
   }
 
-  public function getUiFilePath($file)
+  /**
+   * 
+   * @param string $file 
+   * @return mixed 
+   */
+  public function getUiFilePath(string $file)
   {
 
 
