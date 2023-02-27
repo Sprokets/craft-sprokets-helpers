@@ -81,9 +81,9 @@ class Sproketshelpers extends Plugin
     {
         parent::init();
         self::$plugin = $this;
-        self::$nonce  = Craft::$app->getConfig()->general->isContentBaseRequest ? false : base64_encode(random_bytes(32));
-        // any code that depends on other plugins to be loaded should be wrapped in onInit function
+
         Craft::$app->onInit(function () {
+            self::$nonce  = Craft::$app->getConfig()->general->isContentBaseRequest ? false : base64_encode(random_bytes(32));
             if (!\Craft::$app->request->getIsConsoleRequest()) {
                 // if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
                 //     $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\discloseassets\\DiscloseAssetsBundle");
