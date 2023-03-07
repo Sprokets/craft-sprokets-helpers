@@ -82,7 +82,7 @@ class Sproketshelpers extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        self::$nonce  = Craft::$app->getConfig()->general->isContentBaseRequest ? false : base64_encode(random_bytes(32));
+        self::$nonce  = property_exists(Craft::$app->getConfig()->general, 'isContentBaseRequest') && Craft::$app->getConfig()->general->isContentBaseRequest ? false : base64_encode(random_bytes(32));
 
         if (!\Craft::$app->request->getIsConsoleRequest()) {
             // if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
