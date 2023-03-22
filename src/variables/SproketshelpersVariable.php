@@ -12,6 +12,7 @@
 namespace sprokets\sproketshelpers\variables;
 
 use sprokets\sproketshelpers\Sproketshelpers;
+use craft\helpers\App;
 
 use Craft;
 
@@ -33,9 +34,9 @@ class SproketshelpersVariable
   // =========================================================================
 
   /**
-   * 
-   * @param string $str 
-   * @return string|string[]|null 
+   *
+   * @param string $str
+   * @return string|string[]|null
    */
   public function getIdFromString(string $str)
   {
@@ -43,9 +44,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $url 
-   * @return string|false 
+   *
+   * @param string $url
+   * @return string|false
    */
   function getVimeoIdFromUrl(string $url)
   {
@@ -56,9 +57,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $url 
-   * @return array<string, mixed>|null 
+   *
+   * @param string $url
+   * @return array<string, mixed>|null
    */
   function getVimeoInfo(string $url)
   {
@@ -82,9 +83,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $url 
-   * @return string[]|null 
+   *
+   * @param string $url
+   * @return string[]|null
    */
   function getYoutubeInfo(string $url)
   {
@@ -106,9 +107,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $url 
-   * @return array<string, mixed>|null 
+   *
+   * @param string $url
+   * @return array<string, mixed>|null
    */
   public function getVideoInfo(string $url)
   {
@@ -120,11 +121,11 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $string 
-   * @param bool $line_breaks 
-   * @param bool $xml 
-   * @return string 
+   *
+   * @param string $string
+   * @param bool $line_breaks
+   * @param bool $xml
+   * @return string
    */
   function nl2p(string $string, bool $line_breaks = true, bool $xml = true): string
   {
@@ -154,9 +155,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $sku 
-   * @return mixed 
+   *
+   * @param string $sku
+   * @return mixed
    */
   public function purchasableBySku(string $sku)
   {
@@ -164,10 +165,10 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $url 
-   * @param mixed $size 
-   * @return string  
+   *
+   * @param string $url
+   * @param mixed $size
+   * @return string
    */
   public function getSizedImage(string $url, $size): string
   {
@@ -181,8 +182,8 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @return string 
+   *
+   * @return string
    */
   public function getNonce(): string
   {
@@ -190,8 +191,8 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @return string 
+   *
+   * @return string
    */
   public function getNonceAttribute()
   {
@@ -203,15 +204,15 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param bool $useNonce 
-   * @return array<string, mixed> 
+   *
+   * @param bool $useNonce
+   * @return array<string, mixed>
    */
   public function getUiFiles($useNonce = false)
   {
     $manifestDirectory = Craft::$app->path->getTempPath() . '/assetmanifest';
 
-    $assetDomain = getenv('ASSET_DOMAIN') ? getenv('ASSET_DOMAIN') : Craft::$app->config->general->assetDomain;
+    $assetDomain = App::env('ASSET_DOMAIN') ? App::env('ASSET_DOMAIN') : Craft::$app->config->general->assetDomain;
 
     $manifestPath = $manifestDirectory . '/assetmanifest.json';
     $expiresPath = $manifestDirectory . '/expires.txt';
@@ -270,9 +271,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param bool $useNonce 
-   * @return mixed 
+   *
+   * @param bool $useNonce
+   * @return mixed
    */
   public function getUiHeadHtml(bool $useNonce = false)
   {
@@ -281,9 +282,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param bool $useNonce 
-   * @return mixed 
+   *
+   * @param bool $useNonce
+   * @return mixed
    */
   public function getUiBodyHtml(bool $useNonce = false)
   {
@@ -292,9 +293,9 @@ class SproketshelpersVariable
   }
 
   /**
-   * 
-   * @param string $file 
-   * @return mixed 
+   *
+   * @param string $file
+   * @return mixed
    */
   public function getUiFilePath(string $file)
   {
