@@ -1,4 +1,5 @@
 <?php
+
 /**
  * sprokets-helpers plugin for Craft CMS 3.x
  *
@@ -13,6 +14,7 @@ namespace sprokets\sproketshelpers\assetbundles\discloseassets;
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
+use yii\base\InvalidArgumentException;
 
 /**
  * SproketshelpersAsset AssetBundle
@@ -38,9 +40,11 @@ class DiscloseAssetsBundle extends AssetBundle
     // =========================================================================
 
     /**
-     * Initializes the bundle.
+     * 
+     * @return void 
+     * @throws InvalidArgumentException 
      */
-    public function init()
+    public function init(): void
     {
         // define the path that your publishable resources live
         $this->sourcePath = "@sprokets/sproketshelpers/assetbundles/discloseassets/dist";

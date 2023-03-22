@@ -1,4 +1,5 @@
 <?php
+
 /**
  * sprokets-helpers plugin for Craft CMS 3.x
  *
@@ -9,6 +10,7 @@
  */
 
 namespace sprokets\sproketshelpers\assetbundles\sidebarenhance;
+
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
@@ -39,7 +41,7 @@ class SidebarEnhanceAsset extends AssetBundle
     /**
      * Initializes the bundle.
      */
-    public function init()
+    public function init(): void
     {
         // define the path that your publishable resources live
         $this->sourcePath = "@sprokets/sproketshelpers/assetbundles/sidebarenhance/dist";
