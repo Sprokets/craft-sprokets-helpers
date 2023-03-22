@@ -1,37 +1,36 @@
-# sprokets-helpers plugin for Craft CMS 3.x
-
-Misc helpers
-
-![Screenshot](resources/img/plugin-logo.png)
+# sprokets-helpers plugin for Craft CMS 4.x
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 4.0.0 or later.
 
 ## Installation
 
 To install the plugin, follow these instructions.
 
-1. Open your terminal and go to your Craft project:
+1.  Open your terminal and go to your Craft project:
 
         cd /path/to/project
 
-2. Then tell Composer to load the plugin:
+2.  Then tell Composer to load the plugin:
 
         composer require craft-sprokets-helpers/sprokets-helpers
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for sprokets-helpers.
+3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for sprokets-helpers.
 
 ## Sprokets Helpers Overview
 
 Just some small things to help ease Craft development
 
 ## Admin Improvements:
+
 - Add expended options in left-hand menu
 - Auto-Expand asset folders
 
 ## Twig Extensions:
+
 ### Filters:
+
 #### `idString`
 
 Use an entry title or anything else as an html/array id.
@@ -68,11 +67,13 @@ test2
 Link and obfuscate plain-text emails in any chunk of text.
 
 Useage:
+
 ```twig
 {{entry.body|emailObfuscate}}
 ```
 
 OR
+
 ```twig
 {% filter emailObfuscate %}
   {# Any Content #}
@@ -80,6 +81,7 @@ OR
 ```
 
 This can be used to over entire chunks of a website, for instance in your layout template:
+
 ```twig
 {% filter emailObfuscate %}
   {% block content %}{% endblock %}
@@ -87,6 +89,7 @@ This can be used to over entire chunks of a website, for instance in your layout
 ```
 
 ### Functions
+
 #### `getVideoInfo`
 
 Retrieves video info from youtube or vimeo based on a video url.
