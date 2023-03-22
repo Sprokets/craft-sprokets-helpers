@@ -212,7 +212,7 @@ class SproketshelpersVariable
   {
     $manifestDirectory = Craft::$app->path->getTempPath() . '/assetmanifest';
 
-    $assetDomain = App::env('ASSET_DOMAIN') ? App::env('ASSET_DOMAIN') : Craft::$app->config->general->assetDomain;
+    $assetDomain = App::env('ASSET_DOMAIN') ? App::env('ASSET_DOMAIN') : Craft::$app->config->custom->assetDomain;
 
     $manifestPath = $manifestDirectory . '/assetmanifest.json';
     $expiresPath = $manifestDirectory . '/expires.txt';
