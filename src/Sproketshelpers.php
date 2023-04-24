@@ -13,7 +13,6 @@ namespace sprokets\sproketshelpers;
 
 use sprokets\sproketshelpers\variables\SproketshelpersVariable;
 use sprokets\sproketshelpers\twigextensions\SproketshelpersTwigExtension;
-// use sprokets\sproketshelpers\assetbundles\sidebarenhance\Sproketshelpers_SidebarEnhanceAsset;
 
 use Craft;
 use craft\base\Plugin;
@@ -85,21 +84,6 @@ class Sproketshelpers extends Plugin
         Craft::$app->onInit(function () {
 
             self::$nonce  = property_exists(Craft::$app->getConfig()->custom, 'isContentBaseRequest') && Craft::$app->getConfig()->custom->isContentBaseRequest ? false : base64_encode(random_bytes(32));
-            if (!\Craft::$app->request->getIsConsoleRequest()) {
-                // if (\Craft::$app->request->getIsCpRequest() && !\Craft::$app->user->isGuest) {
-                //     $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\discloseassets\\DiscloseAssetsBundle");
-                // }
-                if (
-                    \Craft::$app->request->getIsCpRequest() &&
-                    \Craft::$app->user &&
-                    \Craft::$app->user->identity &&
-                    \Craft::$app->user->identity->admin &&
-                    Craft::$app->getConfig()->general->allowAdminChanges
-                ) {
-                    // $this->view->registerAssetBundle(Sproketshelpers_SidebarEnhanceAsset::class);
-                    $this->view->registerAssetBundle("sprokets\\sproketshelpers\\assetbundles\\sidebarenhance\\SidebarEnhanceAsset");
-                }
-            }
 
             Craft::$app->view->registerTwigExtension(new SproketshelpersTwigExtension());
 
